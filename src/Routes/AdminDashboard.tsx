@@ -41,4 +41,4 @@ const Adminroutes = [
     },
 ];
 
-export default Adminroutes; // Export the configured router
+export default Adminroutes; 

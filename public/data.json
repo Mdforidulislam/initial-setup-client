@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac lacus id odio tincidunt egestas.",
+    "like": 123,
+    "unlike": 45
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Suspendisse potenti. Nam non metus ut nunc tristique varius id vel ligula.",
+    "like": 235,
+    "unlike": 67
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Nullam facilisis nunc in ligula dictum, eget volutpat turpis hendrerit.",
+    "like": 321,
+    "unlike": 89
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Praesent ac eros vitae erat cursus gravida non id velit.",
+    "like": 412,
+    "unlike": 102
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Morbi at magna quis eros dictum aliquet ut id odio.",
+    "like": 512,
+    "unlike": 150
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Donec tincidunt purus ut purus sagittis, sit amet accumsan ipsum facilisis.",
+    "like": 289,
+    "unlike": 97
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Integer facilisis lectus sit amet turpis vehicula, et commodo neque vestibulum.",
+    "like": 384,
+    "unlike": 122
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Cras vel sem nec turpis fringilla mollis nec ut sapien.",
+    "like": 418,
+    "unlike": 134
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Vestibulum vel metus vitae nulla iaculis posuere in non nulla.",
+    "like": 260,
+    "unlike": 88
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://i.ibb.co.com/cNDR7V9/about.png",
+    "description": "Aliquam tincidunt risus nec justo venenatis, eget condimentum ligula consequat.",
+    "like": 503,
+    "unlike": 145
+  }
+]
