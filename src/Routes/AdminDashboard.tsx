@@ -6,7 +6,6 @@ import Payment from "../Pages/Admin/Payment/Payment";
 import SignIn from "../Pages/SingIn/SingIn";
 import ProtectedRouteAdmin from "../PrivetRoutes/ProtectedRoute";
 import UnAuthorized from "../Pages/Unauthorized/UnAuthorized";
-import TgSupport from "../Pages/Users/TgSupport/TgSupport";
 
 
 const Adminroutes = [
@@ -38,10 +37,6 @@ const Adminroutes = [
                 path:"payment",
                 element: <Payment/>
             },
-            {
-                path:"tg-support",
-                element: <TgSupport/>
-            }
         ],
     },
 ];

@@ -1,10 +1,9 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
 import { Link , useNavigate} from "react-router-dom";
-import { useLoginUserMutation } from "../../Redux/Features/Api/userApi";
-import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { JwtPayload } from 'jwt-decode';
 import { useAppDispatch } from "../../Redux/hooks/hooks";
-import { setAuth } from "../../Redux/Features/User/authSlice";
+
 
 const validateMessages = {
   required: "${label} is required!",
@@ -19,42 +18,15 @@ interface CustomJwtPayload extends JwtPayload {
 const Login: React.FC = () => {
   const navigate = useNavigate()
   const dispatchLogin = useAppDispatch();
-  const [loginUser] =  useLoginUserMutation();
 
-  const onFinish = async (values: any) => {
-    try {
-      const userLogin = await loginUser(values).unwrap(); 
-      if (userLogin?.data?.accessToken ) {
-        const decodedToken = jwtDecode<CustomJwtPayload>(userLogin.data.accessToken);
-        console.log(decodedToken,'check the token')
-        const userRole = decodedToken.user_role;
-        const user_Name = decodedToken.user_Name;
 
-        dispatchLogin(setAuth({ token: userLogin.data.accessToken, userRole , user_Name}));
-
-        if (userRole === 'admin') {
-          navigate('/dashboard/admin');
-        } else if (userRole  === 'user') {
-          navigate('/dashboard/user');
-        } else {
-          console.error('Unknown user role');
-        }
-      } else {
-        console.error('No access token found');
-      }
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
-  };
   
-
 
 
  return(
   <div className="flex justify-center items-center w-full h-screen p-4 bg-gray-100">
   <Form
     name="login-form"
-    onFinish={onFinish}
     style={{
       width: "100%",
       maxWidth: 400,

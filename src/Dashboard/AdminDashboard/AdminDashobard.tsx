@@ -1,43 +1,19 @@
-import React, { useState } from 'react';
+
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   TagsFilled,
   UserOutlined,
 
 } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
-import { Link, Outlet,  useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../Redux/hooks/hooks';
-import { clearAuth } from '../../Redux/Features/User/authSlice';
-import { useLogOutUserMutation } from '../../Redux/Features/Api/userApi';
+import { Button, Layout, Menu,  } from 'antd';
+import { Content, Header } from 'antd/es/layout/layout';
+import Sider from 'antd/es/layout/Sider';
+
+
 import { MdPayment } from 'react-icons/md';
+import { Link, Outlet } from 'react-router-dom';
 
+export const AdminDashboard: React.FC = () => {
 
-const { Header, Sider, Content } = Layout;
-
-const AdminDashboard: React.FC = () => {
-  const [isLogOutUser] = useLogOutUserMutation();
-  const LogOutDispatch = useAppDispatch();
-  const [collapsed, setCollapsed] = useState(false);
-  const navigate = useNavigate(); 
-
-
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-
-  // Handle click for Logout User
-  const logOutHandle = async () => {
-    try {
-        const response = await isLogOutUser(undefined).unwrap(); 
-        console.log("Logout successful:", response);
-        LogOutDispatch(clearAuth()); 
-        navigate("/login"); 
-    } catch (error) {
-        console.error("Logout failed:", error);
-    }
-};
 
 
   return (
@@ -46,7 +22,6 @@ const AdminDashboard: React.FC = () => {
         theme="light"
         trigger={null}
         collapsible
-        collapsed={collapsed}
       >
         <div
           className="demo-logo-vertical"
@@ -86,7 +61,7 @@ const AdminDashboard: React.FC = () => {
         <Header
           style={{
             padding: 0,
-            background: colorBgContainer,
+            background: "#fff",
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -95,8 +70,7 @@ const AdminDashboard: React.FC = () => {
         >
           <Button
             type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
+         
             style={{
               fontSize: '16px',
               width: 64,
@@ -107,7 +81,7 @@ const AdminDashboard: React.FC = () => {
             User Dashboard
           </div>
           <div style={{marginRight: '15px'}}>
-             <button onClick={logOutHandle}>LogOut</button>
+
           </div>
         </Header>
         <Content
@@ -115,8 +89,7 @@ const AdminDashboard: React.FC = () => {
             margin: '24px 16px',
             padding: 24,
             minHeight: 280,
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
+
             boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
             border: '1px solid #e0e0e0',
           }}

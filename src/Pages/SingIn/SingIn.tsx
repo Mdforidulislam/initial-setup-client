@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import { UserOutlined, MailOutlined, PhoneOutlined, FacebookOutlined, SkypeOutlined, LockOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
-import { useCreateUserMutation } from "../../Redux/Features/Api/userApi";
+
 
 
 const validateMessages = {
@@ -14,24 +14,17 @@ const validateMessages = {
 };
 
 const SignIn: React.FC = () => {
-  const [createUser, {data, isLoading, isSuccess }] = useCreateUserMutation();
 
   const onFinish = async (values: any) => {
     console.log("User data before sending:", values); // Log before sending
     try {
-        const result = await createUser(values).unwrap(); // Await and unwrap
-        console.log("User created successfully:", result);
-        console.log("User created successfully:", data);
+
     } catch (err) {
         console.error("Failed to create user:", err);
     }
 };
 
-React.useEffect(() => {
-  if (isSuccess) {
-      console.log("User created successfully (from state):", data);
-  }
-}, [isSuccess, data]); // Only log when the creation is successful
+
 
   return (
     <div className="flex justify-center items-center w-full h-screen p-4 bg-gray-100">
@@ -120,7 +113,6 @@ React.useEffect(() => {
             type="primary"
             htmlType="submit"
             style={{ width: "100%", fontWeight: "bold" }}
-            loading={isLoading} // Show loading state when submitting
           >
             Submit
           </Button>

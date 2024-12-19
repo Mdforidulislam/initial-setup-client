@@ -1,27 +1,19 @@
 import React, { useState } from 'react';
 import {
-  FundProjectionScreenOutlined,
-  MailOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  MessageOutlined,
-  SlackSquareOutlined,
-  TagsFilled,
-  UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 import { Link, Outlet,  useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../Redux/hooks/hooks';
 import { clearAuth } from '../../Redux/Features/User/authSlice';
-import { useLogOutUserMutation } from '../../Redux/Features/Api/userApi';
 
 
 const { Header, Sider, Content } = Layout;
 
 const AdminDashboard: React.FC = () => {
-  const [isLogOutUser] = useLogOutUserMutation();
   const LogOutDispatch = useAppDispatch();
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate(); 
@@ -34,8 +26,6 @@ const AdminDashboard: React.FC = () => {
   // Handle click for Logout User
   const logOutHandle = async () => {
     try {
-        const response = await isLogOutUser(undefined).unwrap(); 
-        console.log("Logout successful:", response);
         LogOutDispatch(clearAuth()); 
         navigate("/login"); 
     } catch (error) {
@@ -72,41 +62,6 @@ const AdminDashboard: React.FC = () => {
               key: '1',
               icon: <UserOutlined />,
               label: <Link to="/dashboard/user">Dashboard</Link>,
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: <Link to="/dashboard/user/shortener">Shortener</Link>,
-            },
-            {
-              key: '4',
-              icon: <TagsFilled />,
-              label: <Link to="/dashboard/user/tg-support">Tg support </Link>,
-            },
-            {
-              key: '5',
-              icon: <FundProjectionScreenOutlined />,
-              label: <Link to="/dashboard/user/screenshort">Screenshot </Link>,
-            },
-            {
-              key: '6',
-              icon: <VideoCameraOutlined />,
-              label: <Link to="/dashboard/user/video-verify">Video verify </Link>,
-            },
-            {
-              key: '8',
-              icon: <SlackSquareOutlined />,
-              label: <Link to="/dashboard/user/buy-sell">Buy Sell</Link>,
-            },
-            {
-              key: '9',
-              icon: <MailOutlined />,
-              label: <Link to="/dashboard/user/temp-mail">Temp mail</Link>,
-            },
-            {
-              key: '10',
-              icon: <MessageOutlined />,
-              label: <Link to="/dashboard/user/live-chat">Message</Link>,
             },
           ]}
         />
